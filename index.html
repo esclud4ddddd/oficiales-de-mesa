@@ -311,7 +311,7 @@ h2{font-family:var(--f-display);font-weight:700;font-size:.95rem;letter-spacing:
 .ga-dir{margin:0 0 10px;background:#0f2a52;border:1px solid #2f5aa0;border-left:5px solid var(--g-yel);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
 .ga-dir.good{border-left-color:var(--g-ok);background:#0f3a35}
 .ga-dir.off{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.ga-dir.off div{flex:1 1 260px;display:flex;flex-direction:column;gap:3px}.ga-dir.off b{font-size:14px}.ga-dir.off span{font-size:12.5px;color:var(--g-mute)}
+.ga-dir.off div{flex:1 1 260px;display:flex;flex-direction:column;gap:3px}.ga-dir .dsb{display:flex;flex-wrap:wrap;gap:6px}.ga-dir.off b{font-size:14px}.ga-dir.off span{font-size:12.5px;color:var(--g-mute)}
 .ga-dir .dh{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:11.5px;color:var(--g-mute);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .ga-dir .dn{color:var(--g-yel)}.ga-dir .dp{margin-left:auto}
 .ga-dir .dx{margin:0;font-size:16px;font-weight:700;line-height:1.35;color:#fff}
@@ -455,7 +455,7 @@ body.fs{overflow:hidden}
 #anotador .gx-clock .sg{fill:#3a1010}#anotador .gx-clock .sg.on{fill:#ff3a2d;filter:none}#anotador .gx-clock .cl{fill:#ff3a2d}
 #anotador .gx-per{color:#fff;font-weight:800;font-size:clamp(11px,3vh,22px);white-space:nowrap}
 #anotador .gx-per.run{color:#2fd27a}
-#anotador .gx-main{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:clamp(96px,17vw,320px) minmax(0,1fr) clamp(96px,17vw,320px);gap:clamp(4px,.8vw,10px)}
+#anotador .gx-main{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:auto clamp(96px,17vw,320px) minmax(0,1fr) clamp(96px,17vw,320px);gap:clamp(4px,.8vw,10px)}
 #anotador .gx-col{display:flex;flex-direction:column;gap:clamp(3px,.9vh,8px);min-height:0}
 #anotador .gx-tag{flex:none;border:0;border-radius:999px;color:#fff;font-weight:800;letter-spacing:.04em;font-size:clamp(11px,2.8vh,18px);padding:clamp(3px,.8vh,7px) 0;min-height:0;text-align:center;align-self:center;width:62%}
 #anotador .gx-tag.t0{background:#e5372b}#anotador .gx-tag.t1{background:#22c3d6}
@@ -481,10 +481,10 @@ body.fs{overflow:hidden}
 #anotador .gx-menu{position:absolute;top:clamp(30px,5.8vh,46px);right:calc(clamp(96px,17vw,320px) + clamp(4px,.8vw,10px));z-index:8;background:#000;border-radius:10px;padding:6px;display:flex;flex-direction:column;gap:3px;min-width:clamp(120px,16vw,180px);max-height:calc(100% - 40px);overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.5)}
 #anotador .gx-menu button{background:#16264a;border:0;border-radius:7px;color:#fff;font-weight:700;font-size:clamp(9px,2.6vh,13px);letter-spacing:.05em;padding:clamp(4px,1.4vh,9px) 12px;text-align:left}
 #anotador .gx-menu button.cur{background:#2a6a46}
-#anotador .gx-bot{flex:none;display:grid;grid-template-columns:minmax(0,.8fr) repeat(5,minmax(0,1.3fr));gap:clamp(4px,.7vw,9px)}
+#anotador .gx-bot{flex:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(4px,.7vw,9px)}
 #anotador .gb2{border:0;border-radius:10px;color:#fff;font-weight:800;letter-spacing:.03em;font-size:clamp(9px,2.5vh,16px);line-height:1.1;padding:clamp(6px,1.8vh,16px) 4px}
 #anotador .gb2.or{background:#f08a1c}#anotador .gb2.rd{background:#d9261c}#anotador .gb2.dk{background:#2a2f3a}#anotador .gb2.sa{background:#ef6a5e}#anotador .gb2.gn{background:#1fae4f}#anotador .gb2.pu{background:#6a3fd0}
-#anotador .gb2.dim{opacity:.45}#anotador .gb2:disabled{opacity:.45}
+#anotador .gx-sd{display:flex;align-items:stretch;gap:4px;min-height:0}#anotador .gx-sdb{display:flex;flex-direction:column;justify-content:center;gap:clamp(4px,1.2vh,10px);width:clamp(74px,10vw,120px)}#anotador .gx-sdb .gb2{padding:clamp(8px,2.4vh,18px) 4px}#anotador .gx-sdt{flex:none;width:clamp(18px,3vh,26px);border:0;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font-size:clamp(14px,3vh,22px);line-height:1;padding:0}#anotador .gx-sdt:hover{background:rgba(255,255,255,.26)}#anotador button.gx-per{background:none;border:0;padding:0;font:inherit;font-weight:800;font-size:clamp(11px,3vh,22px);cursor:pointer;color:#fff;border-bottom:2px dotted rgba(255,255,255,.55)}#anotador button.gx-per.run{color:#2fd27a}#anotador .gb2.dim{opacity:.45}#anotador .gb2:disabled{opacity:.45}
 #anotador .ga{padding:clamp(4px,1vh,10px);gap:clamp(4px,1vh,8px)}
 
 #anotador .gx-tabs{flex:none;display:flex;background:rgba(0,0,0,.35);border-radius:8px;overflow-x:auto}
@@ -1146,7 +1146,7 @@ body.sp-open{overflow:hidden}
 
 <div id="news" class="news" role="dialog" aria-modal="true" aria-labelledby="news-t" hidden>
   <div class="news-box"><h2 id="news-t">Novedades</h2>
-    <ul><li>Se crea el cronómetro y marcador de <b>A Casqueira</b>.</li><li>El marcador de <b>Caranza</b> se sincroniza con su cronómetro.</li><li>Acta digital: nuevo <b>partido automático</b> y se actualiza la visualización del acta.</li><li>Cronómetros de <b>Caranza</b> y <b>A Casqueira</b>: se programa el tiempo de partido con F1, F4, F5 y Resta, como en la consola real.</li></ul>
+    <ul><li>Se crea el cronómetro y marcador de <b>A Casqueira</b>.</li><li>El marcador de <b>Caranza</b> se sincroniza con su cronómetro.</li><li>Acta digital: nuevo <b>partido automático</b> y se actualiza la visualización del acta.</li><li>Cronómetros de <b>Caranza</b> y <b>A Casqueira</b>: se programa el tiempo de partido con F1, F4, F5 y Resta, como en la consola real.</li><li>Acta digital: botones laterales que se recogen y cambio de cuarto desde el indicador.</li></ul>
     <button type="button" class="news-ok" id="news-ok">Visto</button></div>
 </div>
 
@@ -4264,7 +4264,7 @@ function doReset(){const names=S.teams.map(t=>t.name),old=S.teams.map(t=>t.playe
   S=Object.assign(S,{per:1,t:S.len*600,running:false,final:false,teams:[mkTeam(0),mkTeam(1)],log:[],shots:[]});
   S.teams.forEach((t,i)=>{t.name=names[i];t.players=old[i].map(o=>mkP(o[0],o[1]))});hist=[];S.lu=0;AU.psn={};AU.tt={};auSnap();UI.sel=null;UI.modal=null;UI.tmb=null;UI.rep='';DIR.on=false}
 /* carga de plantillas desde el acta iniciada: titulares primero (posiciones 0-4), reservas después */
-window.actaLoad=function(cfg,mx,mini){UI.admin=!!window.actaAdmin;window.actaAdmin=0;UI.auto=!!window.actaAuto;window.actaAuto=0;AU.psn={};AU.tt={};MAXC=mx||5;if(mini){S.mini=1;S.len=8}else if(S.mini){S.mini=0;S.len=10}cfg.forEach(function(c,i){if(!c)return;const t=S.teams[i];
+window.actaLoad=function(cfg,mx,mini){UI.admin=!!window.actaAdmin;window.actaAdmin=0;UI.auto=true;window.actaAuto=0;AU.psn={};AU.tt={};MAXC=mx||5;if(mini){S.mini=1;S.len=8}else if(S.mini){S.mini=0;S.len=10}cfg.forEach(function(c,i){if(!c)return;const t=S.teams[i];
   t.players=c.pl.map(function(p){return mkP(p.n,p.cap)});t.court=[0,1,2,3,4].slice(0,Math.min(MAXC,t.players.length));t.score=0;t.tf=0;t.tm=0;t.coach=0;t.ayu=0});
   S.per=1;S.t=S.len*600;S.running=false;S.final=false;S.log=[];S.shots=[];S.lu=0;hist=[];UI.rep='';UI.sel=null;UI.modal=null;UI.tmb=null;DIR.on=false;auSnap();render()};
 /* ---------- partido automático: genera los cuartos que te saltas ---------- */
@@ -4503,8 +4503,16 @@ function dirBad(){const G=DIR.G;if(!G)return'';
 function dirAdvance(){if(!DIR.on||!DIR.ok)return;if(DIR.task.kind==='final'){DIR.over=true;UI.modal={type:'dirend',fin:true}}else nextTask();render()}
 function dirCheck(){if(DIR.on&&DIR.task&&!DIR.ok&&!DIR.over&&!diff()){DIR.ok=true;DIR.done++;DIR.msg='';setTimeout(dirAdvance,DIR.task.kind==='final'?800:1400)}}
 function startGame(){MAXC=5;doReset();DIR.on=true;DIR.G=gNew();DIR.pend=[];DIR.done=0;DIR.hints=0;DIR.n=0;DIR.over=false;DIR.fin=false;DIR.t0=Date.now();DIR.curT=0;DIR.times=mkTimes();nextTask();UI.tab='cancha';UI.modal=null;render()}
+function sideHtml(){const off=!!UI.sideOff;
+  return '<div class="gx-sd">'+(off?'':'<div class="gx-sdb">'+
+   '<button type="button" class="gb2 or" data-act="gxexit" aria-label="Salir del acta">&#8592;</button>'+
+   (UI.admin?'<button type="button" class="gb2 or" data-act="gxpre" aria-label="Volver a la primera pantalla del anotador">&#8962; INICIO</button>':'')+
+   '<button type="button" class="gb2 pu" data-act="agoto" aria-label="Ir a otro cuarto">&#9193; CUARTOS</button>'+
+   (!DIR.on?'<button type="button" class="gb2 dk" data-act="dirshow" aria-label="Mostrar u ocultar el partido ficticio">'+(UI.dirHide?'PARTIDO FICTICIO':'OCULTAR PARTIDO')+'</button>':'')+'</div>')+
+   '<button type="button" class="gx-sdt" data-act="sidetog" aria-expanded="'+(off?'false':'true')+'" aria-label="'+(off?'Mostrar':'Recoger')+' botones laterales">'+(off?'&#8250;':'&#8249;')+'</button></div>'}
 function dirHtml(){
-  if(!DIR.on)return'<div class="ga-dir off"><div><b>Partido ficticio</b><span>El simulador te dicta lo que pasa en la pista y tú lo anotas: canastas de 1, 2 y 3, faltas (incluidas técnicas y descalificantes), tiempos muertos, cambios de hasta 5 jugadores…</span></div><button type="button" class="gb ok" data-act="dirstart">Empezar partido (reinicia el acta)</button></div>';
+  if(!DIR.on&&UI.dirHide)return'';
+  if(!DIR.on)return'<div class="ga-dir off"><div><b>Partido ficticio</b><span>El simulador te dicta lo que pasa en la pista y tú lo anotas: canastas de 1, 2 y 3, faltas (incluidas técnicas y descalificantes), tiempos muertos, cambios de hasta 5 jugadores…</span></div><span class="dsb"><button type="button" class="gb ok" data-act="dirstart">Empezar partido (reinicia el acta)</button><button type="button" class="gb" data-act="dirshow">Ahora no</button></span></div>';
   const k=DIR.task.kind,tag=k==='ev'?'JUEGO':k==='perend'?'PERIODO':'FINAL';
   return'<div class="ga-dir'+(DIR.ok?' good':'')+'" role="status"><div class="dh"><span class="dn">Tarea '+DIR.n+'</span><span class="dt">'+tag+' · '+perLabel().toLowerCase()+' · '+fmt(S.t)+'</span><span class="dp">Hechas: '+DIR.done+(DIR.hints?' · Ayudas: '+DIR.hints:'')+'</span></div>'+
    '<p class="dx">'+esc(DIR.task.text)+'</p>'+
@@ -4521,13 +4529,12 @@ function render(){
   const c=S.running?'run':'',O=UI.flip?[1,0]:[0,1];colVars();
   root.innerHTML=
    '<div class="gx-bar">'+gxSide(O[0],0)+gxScore(O[0])+
-   '<button type="button" class="gx-clock '+c+'" data-act="clock" aria-label="Reloj: pulsa para '+(S.running?'parar':'arrancar')+'">'+segSvg(cfmt(S.t),'clk')+'</button><span class="gx-per'+(S.running?' run':'')+'">'+gxPer()+'</span>'+
+   '<button type="button" class="gx-clock '+c+'" data-act="clock" aria-label="Reloj: pulsa para '+(S.running?'parar':'arrancar')+'">'+segSvg(cfmt(S.t),'clk')+'</button><button type="button" class="gx-per'+(S.running?' run':'')+'" data-act="agoto" aria-label="Cambiar de cuarto">'+gxPer()+' &#9662;</button>'+
    gxScore(O[1])+gxSide(O[1],1)+'</div>'+
    '<div class="gx-tabs" role="tablist">'+TABS.map(x=>'<button type="button" role="tab" aria-selected="'+(UI.tab===x[0])+'" class="gx-tab" data-act="tab" data-tab="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+
-   dirHtml()+'<div class="gx-main">'+gxCol(O[0])+'<div class="gx-mid'+(UI.tab==='cancha'?' cv':'')+'">'+body+'</div>'+gxCol(O[1])+
+   dirHtml()+'<div class="gx-main">'+sideHtml()+gxCol(O[0])+'<div class="gx-mid'+(UI.tab==='cancha'?' cv':'')+'">'+body+'</div>'+gxCol(O[1])+
    '<button type="button" class="gx-fold" data-act="gxmenu" aria-expanded="'+(UI.menu?'true':'false')+'" aria-label="Menú del acta">'+(UI.menu?'›':'‹')+'</button>'+(UI.menu?gxMenu():'')+'</div>'+
    '<div class="gx-bot">'+
-   '<button type="button" class="gb2 or" data-act="gxexit" aria-label="Salir del acta">&#8592;</button>'+(UI.admin?'<button type="button" class="gb2 or" data-act="gxpre" aria-label="Volver a la primera pantalla del anotador">&#8962; INICIO</button>':'')+(UI.auto?'<button type="button" class="gb2 pu" data-act="agoto">&#9193; IR A CUARTO</button>':'')+
    '<button type="button" class="gb2 rd" data-act="end">FINALIZAR PARTIDO</button>'+
    (UI.sel&&selPlayer()&&!selPlayer().p.out?'<button type="button" class="gb2 sa" data-act="fpers" aria-label="Falta personal a #'+esc(selPlayer().p.n)+'">FALTA PERSONAL</button>':'<button type="button" class="gb2 sa" data-act="other">OTRAS FALTAS</button>')+
    '<button type="button" class="gb2 dk" data-act="ft">TIRO LIBRE</button>'+
@@ -4565,8 +4572,10 @@ root.addEventListener('click',function(e){
   if(a==='colpick'){UI.modal[UI.modal.w?'b':'a']=d.v;render();return}
   if(a==='colok'){UI.col=[UI.modal.a,UI.modal.b];UI.modal=null;render();return}
   if(a==='gxmenu'){UI.menu=!UI.menu;render();return}
+  if(a==='sidetog'){UI.sideOff=!UI.sideOff;render();return}
+  if(a==='dirshow'){UI.dirHide=!UI.dirHide;render();return}
   if(a==='gxhelp'){render();document.getElementById('ga-help').click();return}
-  if(a==='agoto'){if(S.final){toast('El acta está finalizada.');return}UI.modal={type:'agoto'};render();return}
+  if(a==='agoto'){if(DIR.on){toast('No está disponible durante el partido ficticio.');return}if(S.final){toast('El acta está finalizada.');return}UI.modal={type:'agoto'};render();return}
   if(a==='agpick'){auGoto(d.v==='end'?'end':+d.v);return}
   if(a==='gxpre'){document.getElementById('anotador').dataset.step='pre';window.scrollTo(0,0);return}
   if(a==='gxexit'){document.getElementById('ga-exit').click();return}
@@ -4729,7 +4738,7 @@ run();
 function close(){alive=false;cancelAnimationFrame(raf);clearInterval(tk);sp.classList.add('out');document.body.classList.remove('sp-open');setTimeout(function(){sp.remove()},700);window.scrollTo(0,0)}
 go.addEventListener('click',close);go.focus({preventScroll:true});
 /* aviso de novedades: sale al entrar y no vuelve hasta que cambie la versión del aviso */
-const NID='v227',nw=document.getElementById('news'),nok=document.getElementById('news-ok');
+const NID='v229',nw=document.getElementById('news'),nok=document.getElementById('news-ok');
 let seen=false;try{seen=localStorage.getItem('news-seen')===NID}catch(e){}
 go.addEventListener('click',function(){if(seen||!nw)return;nw.hidden=false;setTimeout(function(){nok.focus({preventScroll:true})},50)});
 if(nok)nok.addEventListener('click',function(){nw.hidden=true;seen=true;try{localStorage.setItem('news-seen',NID)}catch(e){}});})();
