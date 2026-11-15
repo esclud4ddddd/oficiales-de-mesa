@@ -1146,7 +1146,7 @@ body.sp-open{overflow:hidden}
 
 <div id="news" class="news" role="dialog" aria-modal="true" aria-labelledby="news-t" hidden>
   <div class="news-box"><h2 id="news-t">Novedades</h2>
-    <ul><li>Se crea el cronómetro y marcador de <b>A Casqueira</b>.</li><li>El marcador de <b>Caranza</b> se sincroniza con su cronómetro.</li><li>Acta digital: nuevo <b>partido automático</b> y se actualiza la visualización del acta.</li></ul>
+    <ul><li>Se crea el cronómetro y marcador de <b>A Casqueira</b>.</li><li>El marcador de <b>Caranza</b> se sincroniza con su cronómetro.</li><li>Acta digital: nuevo <b>partido automático</b> y se actualiza la visualización del acta.</li><li>Cronómetros de <b>Caranza</b> y <b>A Casqueira</b>: se programa el tiempo de partido con F1, F4, F5 y Resta, como en la consola real.</li></ul>
     <button type="button" class="news-ok" id="news-ok">Visto</button></div>
 </div>
 
@@ -1589,8 +1589,8 @@ body.sp-open{overflow:hidden}
           <dt>Local / Visitante (blancos)</dt><dd>Suman 1 punto al marcador.</dd>
           <dt>Resta</dt><dd>Púlsalo y después pulsa lo que quieras corregir (punto, falta, tiempo muerto o dorsal).</dd>
           <dt>Servicio</dt><dd>Cambia el servicio entre local y visitante (pilotos de la izquierda).</dd>
-          <dt>F1 (Menú Programar)</dt><dd>Entra en el menú: deporte, duración, cuenta y período. F1 pasa al siguiente paso; F4 baja y F5 sube el valor.</dd>
-          <dt>F3 (Enviar)</dt><dd>Envía los datos programados al marcador y sale del menú.</dd>
+          <dt>F1 (Menú Programar)</dt><dd>Programar el tiempo de partido: F1 → DEPORTE (no se toca) → F1 → PERIODO-SET (número de período) → F1 → BK CRONO INICIAL (tiempo de partido) → F1 → POSESIÓN (corrige los 14 y 24 s, solo si el cronómetro lo tiene). En cada pantalla, F5 suma, Resta + F5 resta y F4 mueve la flecha ⇩ a otra cifra. El último F1 vuelve a la pantalla principal.</dd>
+          <dt>F3 (Enviar)</dt><dd>En el programado no hace falta: los cambios se aplican al momento.</dd>
           <dt>F2 (Faltas A. / Tiempo M.)</dt><dd>Elige el campo: faltas acumuladas de equipo, tiempos muertos o ninguno. El campo parpadea en la pantalla.</dd>
           <dt>F4 (Local, Jugador) / F5 (Visitante, Falta)</dt><dd>Con Faltas A. o Tiempo M. elegido, F4 suma al local y F5 al visitante. Sin campo, F4 cambia el dorsal y F5 suma una falta a ese jugador.</dd>
         </dl></details></div><p class="note">Réplica de la consola CM-02. El marcador de abajo refleja lo que marques en el cronómetro: tiempo y puntos. El reparto de F2, F3, F4 y F5 es una interpretación a partir de los rótulos de la foto; con el manual se afina.</p></div></div>
@@ -1605,8 +1605,8 @@ body.sp-open{overflow:hidden}
           <dt>Local / Visitante (blancos)</dt><dd>Suman 1 punto al marcador.</dd>
           <dt>Resta</dt><dd>Púlsalo y después pulsa lo que quieras corregir (punto, falta, tiempo muerto o dorsal).</dd>
           <dt>Servicio</dt><dd>Cambia el servicio entre local y visitante (pilotos de la izquierda).</dd>
-          <dt>F1 (Menú Programar)</dt><dd>Entra en el menú: deporte, duración, cuenta y período. F1 pasa al siguiente paso; F4 baja y F5 sube el valor.</dd>
-          <dt>F3 (Enviar)</dt><dd>Envía los datos programados al marcador y sale del menú.</dd>
+          <dt>F1 (Menú Programar)</dt><dd>Programar el tiempo de partido: F1 → DEPORTE (no se toca) → F1 → PERIODO-SET (número de período) → F1 → BK CRONO INICIAL (tiempo de partido) (este cronómetro no tiene pantalla de posesión). En cada pantalla, F5 suma, Resta + F5 resta y F4 mueve la flecha ⇩ a otra cifra. El último F1 vuelve a la pantalla principal.</dd>
+          <dt>F3 (Enviar)</dt><dd>En el programado no hace falta: los cambios se aplican al momento.</dd>
           <dt>F2 (Faltas A. / Tiempo M.)</dt><dd>Elige el campo: faltas acumuladas de equipo, tiempos muertos o ninguno. El campo parpadea en la pantalla.</dd>
           <dt>F4 (Local, Jugador) / F5 (Visitante, Falta)</dt><dd>Con Faltas A. o Tiempo M. elegido, F4 suma al local y F5 al visitante. Sin campo, F4 cambia el dorsal y F5 suma una falta a ese jugador.</dd>
         </dl></details></div><p class="note">Réplica de la consola CM-01 de Casqueira. El marcador de abajo refleja lo que marques en el cronómetro: puntos, período, tiempo y faltas de equipo. El reparto de F2, F3, F4 y F5 es una interpretación a partir de los rótulos de la foto; con el manual se afina.</p></div></div>
@@ -2585,7 +2585,7 @@ function setLcd(a,b){const t=(a+' '.repeat(16)).slice(0,16)+(b+' '.repeat(16)).s
 C.disp.forEach(a=>mkDisp(a[0],a[1],a[2],a[3],a[4],a[5]));
 C.leds.forEach(a=>mkLed(a[0],a[1],a[2],a[3]));
 const SB=[['Baloncesto',10,'down'],['Balonmano',30,'up'],['Voleibol',0,'up'],['Fútbol sala',20,'down'],['Hockey',25,'down']];
-const S={on:true,lamp:false,sport:0,min:10,dir:'down',t:600000,running:false,period:1,score:[0,0],fa:[0,0],tm:[0,0],dorsal:0,pf:{},serve:0,minus:false,arm:null,menu:-1,M:null,hornOn:false};
+const S={on:true,lamp:false,sport:0,min:10,dir:'down',t:600000,ini:600000,running:false,period:1,score:[0,0],fa:[0,0],tm:[0,0],dorsal:10,pf:{},serve:0,minus:false,arm:null,menu:-1,cur:0,pos:[14,24],M:null,hornOn:false};
 const pad=(n,l)=>String(n).padStart(l,'0');
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ok=()=>{if(!S.on){log('Consola apagada. Usa el interruptor de alimentación.');return false}return true};
@@ -2601,20 +2601,22 @@ function beep(ms){hornStart();render();setTimeout(function(){hornStop();render()
 const limit=()=>(S.min>0?S.min*60000:5999000);
 const tstr=t=>t>=60000?pad(Math.floor(t/60000)%100,2)+':'+pad(Math.floor(t/1000)%60,2):pad(Math.floor(t/1000),2)+'.'+pad(Math.floor(t/10)%100,2);
 let blink=true;
+const MCUR=[[0],[0],[9,10,12,13,15],[9,10,14,15]],MSTEP=[0,1,[600000,60000,10000,1000,100],[10,1,10,1]],MMAX=C.pos?3:2;
 function rows(){
   if(!S.on)return['',''];
   if(S.lamp)return C.lamp;
-  if(S.menu>=0){const M=S.M,i=S.menu;
-    if(i===0)return['MENU 1/4 DEPORTE',SB[M.sport][0]];
-    if(i===1)return['MENU 2/4 DURAC. ',M.min>0?M.min+' min':'0 min (libre)'];
-    if(i===2)return['MENU 3/4 CUENTA ',M.dir==='down'?'Descendente':'Ascendente'];
-    return['MENU 4/4 PERIODO',String(M.period)];
+  if(S.menu>=0){const i=S.menu,cp=MCUR[i]||[0],cc=cp[S.cur%cp.length],AR='⇩';
+    const put=(txt,c)=>(txt+' '.repeat(16)).slice(0,c)+AR+(txt+' '.repeat(16)).slice(c+1,16);
+    if(i===0)return['BK< DEPORTE',' <--borrar-->'];
+    if(i===1)return[put('    PERIODO-SET',cc),String(S.period)];
+    if(i===2){const m=Math.floor(S.ini/60000),sc=Math.floor(S.ini/1000)%60,d=Math.floor(S.ini/100)%10;return[put('BK CRONO',cc),' INICIAL '+pad(m,2)+':'+pad(sc,2)+'.'+d]}
+    return[put('POSESION',cc),('1-'+pad(S.pos[0],2)+' 2-'+pad(S.pos[1],2)).padStart(16)]
   }
   const ar=S.dir==='down'?'↓':'↑';
-  const lab=S.arm?((blink?(S.arm==='fa'?'FALT.A':'T.MUER'):'')):'';
-  const r1=pad(S.min,2)+ar+' P'+S.period+'  '+lab;
-  const r2='J'+pad(S.dorsal,2)+'-'+(S.pf[S.dorsal]||0)+' A'+S.fa[0]+'-'+S.fa[1]+' T'+S.tm[0]+'-'+S.tm[1]+(S.minus?' -':'');
-  return[r1,r2];
+  const l1='BK'+ar+'00 '+(S.arm==='tm'&&!blink?'  ':'TM')+' '+(S.arm==='fa'&&!blink?'  ':'TP')+'  J-F';
+  let l2=String(S.period)+'   '+S.tm[0]+'-'+S.tm[1]+' '+S.fa[0]+'-'+S.fa[1]+' '+pad(S.dorsal,2)+'-'+(S.pf[S.dorsal]||0);
+  if(S.minus)l2=l2[0]+'-'+l2.slice(2);
+  return[l1,l2];
 }
 function render(){
   const on=S.on,L=on&&S.lamp,t=S.t;
@@ -2647,25 +2649,28 @@ setInterval(function(){
 },50);
 function disarm(){S.arm=null}
 const A={
- start(){if(!ok())return;if(S.menu>=0){log('Termina el menú con F3 (Enviar).');return}if(S.dir==='down'&&S.t<=0){log('El tiempo está a cero. Programa de nuevo con F1.');return}S.running=true;log('START.');render()},
+ start(){if(!ok())return;if(S.menu>=0){log('Sal del menú con F1 hasta la pantalla principal.');return}if(S.dir==='down'&&S.t<=0){log('El tiempo está a cero. Programa de nuevo con F1.');return}S.running=true;log('START.');render()},
  stop(){if(!ok())return;if(S.running)log('STOP: '+tstr(S.t)+'.');S.running=false;render()},
  resta(){if(!ok())return;S.minus=!S.minus;log(S.minus?'Resta activa: pulsa lo que quieras corregir.':'Resta cancelada.');render()},
  white(i){if(!ok())return;const d=S.minus?-1:1;S.score[i]=clamp(S.score[i]+d,0,199);S.minus=false;log((i?'Visitante ':'Local ')+(d>0?'suma':'resta')+': '+S.score[0]+'-'+S.score[1]+'.');render()},
  serve(){if(!ok())return;S.serve=S.serve===1?2:1;log('Servicio: '+(S.serve===1?'local':'visitante')+'.');render()},
  f1(){if(!ok())return;disarm();S.minus=false;
-   if(S.menu<0){S.menu=0;S.M={sport:S.sport,min:S.min,dir:S.dir,period:S.period};log('Menú: deporte. F4 baja, F5 sube.');render();return}
-   if(S.menu<3){S.menu++;log('Menú: '+['deporte','duración','cuenta','período'][S.menu]+'.');render();return}
-   log('Pulsa F3 (Enviar) para enviar los datos.')},
- f2(){if(!ok())return;if(S.menu>=0){log('Termina el menú con F3 (Enviar).');return}S.minus=false;const o=['fa','tm',null];S.arm=o[(o.indexOf(S.arm)+1)%3];log(S.arm==='fa'?'Campo Faltas A. (faltas de equipo).':S.arm==='tm'?'Campo Tiempo M. (tiempos muertos).':'Sin campo: F4 jugador, F5 falta.');render()},
+   const nm=['DEPORTE (no hace falta tocar)','PERIODO-SET: F4 mueve la flecha, F5 suma, Resta+F5 resta','BK CRONO INICIAL: F4 mueve la flecha, F5 suma, Resta+F5 resta','POSESIÓN: se corrigen los 14 y 24 s'];
+   S.menu=S.menu<0?0:S.menu+1;S.cur=0;
+   if(S.menu>MMAX){S.menu=-1;log('Pantalla principal.');render();return}
+   log('Menú: '+nm[S.menu]+'.');render()},
+ f2(){if(!ok())return;if(S.menu>=0){log('Sal del menú con F1 hasta la pantalla principal.');return}S.minus=false;const o=['fa','tm',null];S.arm=o[(o.indexOf(S.arm)+1)%3];log(S.arm==='fa'?'Campo Faltas A. (faltas de equipo).':S.arm==='tm'?'Campo Tiempo M. (tiempos muertos).':'Sin campo: F4 jugador, F5 falta.');render()},
  f3(){if(!ok())return;
-   if(S.menu>=0){const M=S.M;S.sport=M.sport;S.min=M.min;S.dir=M.min===0?'up':M.dir;S.period=M.period;S.t=S.dir==='down'?S.min*60000:0;S.running=false;S.menu=-1;S.M=null;log('Enviar: '+SB[S.sport][0]+', '+(S.min||'libre')+' min, '+(S.dir==='down'?'descendente':'ascendente')+', período '+S.period+'.');render();return}
+   if(S.menu>=0){log('Los cambios ya se aplican al momento. Sigue con F1 hasta la pantalla principal.');return}
    log('Enviar: datos enviados al marcador.');render()},
  side(i){if(!ok())return;const d0=S.minus?-1:1;
-   if(S.menu>=0){const M=S.M,d=i===1?1:-1,k=S.menu;
-     if(k===0){M.sport=(M.sport+d+SB.length)%SB.length;M.min=SB[M.sport][1];M.dir=SB[M.sport][2];log('Deporte: '+SB[M.sport][0]+'.')}
-     else if(k===1){M.min=clamp(M.min+d,0,99);log('Duración: '+M.min+' min.')}
-     else if(k===2){M.dir=M.dir==='down'?'up':'down';log('Cuenta: '+(M.dir==='down'?'descendente':'ascendente')+'.')}
-     else{M.period=clamp(M.period+d,1,9);log('Período: '+M.period+'.')}
+   if(S.menu>=0){const k=S.menu;
+     if(k===0){log('En DEPORTE no hace falta tocar nada: pulsa F1 para seguir.');return}
+     if(i===0){S.cur=(S.cur+1)%MCUR[k].length;log('Flecha movida.');render();return}
+     const d=S.minus?-1:1;S.minus=false;
+     if(k===1){S.period=clamp(S.period+d,1,9);log('Período: '+S.period+'.')}
+     else if(k===2){const st=MSTEP[2][S.cur%MCUR[2].length];S.ini=clamp(S.ini+d*st,0,5999900);S.t=S.ini;S.min=Math.max(1,Math.ceil(S.ini/60000));S.dir='down';S.running=false;log('Tiempo inicial: '+tstr(S.ini)+'.')}
+     else{const q=S.cur%MCUR[3].length,n=q<2?0:1;S.pos[n]=clamp(S.pos[n]+d*MSTEP[3][q],0,99);log('Posesión: 1-'+S.pos[0]+' 2-'+S.pos[1]+'.')}
      render();return}
    if(S.arm==='fa'){S.fa[i]=clamp(S.fa[i]+d0,0,9);S.minus=false;log('Faltas de equipo '+S.fa[0]+'-'+S.fa[1]+'.');render();return}
    if(S.arm==='tm'){S.tm[i]=clamp(S.tm[i]+d0,0,9);S.minus=false;log('Tiempos muertos '+S.tm[0]+'-'+S.tm[1]+'.');render();return}
@@ -2692,7 +2697,7 @@ $('.js-zones').addEventListener('change',function(e){stage.classList.toggle('zon
 render();S.lamp=true;render();setTimeout(function(){S.lamp=false;render()},1100);
 log('Consola lista. Baloncesto, 10:00.');
 }
-function initCaranza(root){initCM(root,{W:1506,H:1020,lcdbg:[771,367,566,134],lcd:[771,367,530,112],lamp:['  STB MARCADORES','    CM-02       '],
+function initCaranza(root){initCM(root,{pos:1,W:1506,H:1020,lcdbg:[771,367,566,134],lcd:[771,367,530,112],lamp:['  STB MARCADORES','    CM-02       '],
  disp:[['cm',692,567,156,116,2],['cs',864,567,156,116,2],['sL',277,677,246,108,3],['sR',1243,677,246,108,3]],
  leds:[['on',1252,201,22],['svL',481,693,20],['svR',524,693,20],['stop',700,695,20],['start',862,694,20],['clax',1023,694,20]],
  hs:[[303,210,100,80,'F1: menú programar','f1'],[301,290,100,80,'F2: faltas A. / tiempo M.','f2'],[298,375,100,80,'F3: enviar','f3'],[297,507,96,96,'Resta','resta'],
@@ -4048,7 +4053,7 @@ function tabOtros(){const ot=(UI.otab&&UI.otab!=='aj')?UI.otab:'rot',fl=UI.filt=
   const flab=fl==='all'?'Todos':fl===0?'Local':'Visitante';
   h+='<div class="ro-top"><span>Jugadores</span><button type="button" class="ro-f" data-act="ofilt" aria-haspopup="dialog">'+flab+' &#9662;</button></div>';
   const rows=otRows();let head,body;
-  if(ot==='rot'){const np=Math.max(4,S.per);head='<th>Jugador</th>';for(let k=1;k<=np;k++)head+='<th>'+(k<=4?'P'+k:'E'+(k-4))+'</th>';
+  if(ot==='rot'){const np=Math.max(NP(),S.per);head='<th>Jugador</th>';for(let k=1;k<=np;k++)head+='<th>'+(k<=NP()?'P'+k:'PR'+(k-NP()))+'</th>';
     body=rows.map(function(r){let c='<td>#'+esc(r.p.n)+'</td>';for(let k=1;k<=np;k++)c+='<td>'+(r.p.per&&r.p.per[k]?'X':'-')+'</td>';return '<tr class="t'+r.ti+'">'+c+'</tr>'}).join('')}
   else if(ot==='lic'){head='<th>Jugador</th><th>Licencia</th><th>Estado</th>';
     body=rows.map(r=>'<tr class="t'+r.ti+'"><td>#'+esc(r.p.n)+'</td><td>'+licOf(r.ti,r.i)+'</td><td>En vigor</td></tr>').join('')}
@@ -4724,7 +4729,7 @@ run();
 function close(){alive=false;cancelAnimationFrame(raf);clearInterval(tk);sp.classList.add('out');document.body.classList.remove('sp-open');setTimeout(function(){sp.remove()},700);window.scrollTo(0,0)}
 go.addEventListener('click',close);go.focus({preventScroll:true});
 /* aviso de novedades: sale al entrar y no vuelve hasta que cambie la versión del aviso */
-const NID='v225',nw=document.getElementById('news'),nok=document.getElementById('news-ok');
+const NID='v227',nw=document.getElementById('news'),nok=document.getElementById('news-ok');
 let seen=false;try{seen=localStorage.getItem('news-seen')===NID}catch(e){}
 go.addEventListener('click',function(){if(seen||!nw)return;nw.hidden=false;setTimeout(function(){nok.focus({preventScroll:true})},50)});
 if(nok)nok.addEventListener('click',function(){nw.hidden=true;seen=true;try{localStorage.setItem('news-seen',NID)}catch(e){}});})();
